@@ -70,6 +70,7 @@ export const Ghostbar = styled.div`
   height: 100%;
   left: 0;
   background: #1583f2;
+
   &::after {
     content: '';
     position: absolute;
@@ -92,5 +93,15 @@ export const FdNavItem = styled.div`
   width: 150px;
   text-align: center;
   white-space: nowrap;
-
+`
+export const AppMain = styled.div`
+  position: absolute;
+  left: 0;
+  top: 54px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background: #f2f4f5;
+  box-sizing: border-box;
 `

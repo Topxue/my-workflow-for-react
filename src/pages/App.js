@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import {
+  AppMain,
   FdNavItem,
   Ghostbar,
   HeaderAppNameWarper,
@@ -14,14 +15,31 @@ import {
 import {LeftOutlined} from '@ant-design/icons'
 
 import {DEFAULT_GOT_X, Tabs} from '../config'
-import {Button} from "antd";
+
+import {Button} from 'antd'
+import BaseSetting from '../components/BaseSetting'
+import FormGenerator from "../components/form-generator";
 
 function App() {
   const [ghostX, setGhostX] = useState(0)
+  const [currentTab, setCurrentTab] = useState(1)
 
   const handleChangeTab = (currentIndex) => {
     const ghostX = DEFAULT_GOT_X * currentIndex + 'px'
     setGhostX(ghostX)
+
+    setCurrentTab(currentIndex + 1)
+  }
+
+  const getCurrentTab = () => {
+    switch (currentTab) {
+      case 1:
+        return <BaseSetting></BaseSetting>
+      case 2:
+        return <FormGenerator></FormGenerator>
+      default:
+        return <BaseSetting></BaseSetting>
+    }
   }
 
   return (
@@ -48,6 +66,10 @@ function App() {
 
         <Button type="primary">Publish</Button>
       </HeaderWrapper>
+
+      <AppMain>
+        {getCurrentTab()}
+      </AppMain>
     </div>
   );
 }
