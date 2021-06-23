@@ -12,6 +12,7 @@ export const BaseSettingContainer = styled.div`
   right: 0;
   bottom: 12px;
   overflow: auto;
+  display: ${props => props.currentTab === 1 ? 'block' : 'none'};
 `
 
 export const FormNameWarpper = styled.div`
@@ -52,6 +53,7 @@ export const GroupButtonContainer = styled.div`
   justify-content: space-between;
   font-size: 22px;
   cursor: pointer;
+
   span {
     padding-left: 10px;
     color: #088DFF;
@@ -62,7 +64,8 @@ export const AddGroupButton = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  div{ 
+
+  div {
     padding-left: 5px;
   }
 `

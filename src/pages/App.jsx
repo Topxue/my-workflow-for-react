@@ -17,8 +17,10 @@ import {LeftOutlined} from '@ant-design/icons'
 import {DEFAULT_GOT_X, Tabs} from '../config'
 
 import {Button} from 'antd'
+
 import BaseSetting from '../components/BaseSetting'
 import FormGenerator from "../components/form-generator";
+import ProcessDesign from "../components/process-design";
 
 function App() {
   const [ghostX, setGhostX] = useState(0)
@@ -31,16 +33,16 @@ function App() {
     setCurrentTab(currentIndex + 1)
   }
 
-  const getCurrentTab = () => {
-    switch (currentTab) {
-      case 1:
-        return <BaseSetting></BaseSetting>
-      case 2:
-        return <FormGenerator></FormGenerator>
-      default:
-        return <BaseSetting></BaseSetting>
-    }
-  }
+  // const getCurrentTab = () => {
+  //   switch (currentTab) {
+  //     case 1:
+  //       return <BaseSetting></BaseSetting>
+  //     case 2:
+  //       return <FormGenerator></FormGenerator>
+  //     default:
+  //       return <BaseSetting></BaseSetting>
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -68,7 +70,9 @@ function App() {
       </HeaderWrapper>
 
       <AppMain>
-        {getCurrentTab()}
+        <BaseSetting currentTab={currentTab}></BaseSetting>
+        <FormGenerator currentTab={currentTab}></FormGenerator>
+        <ProcessDesign currentTab={currentTab}></ProcessDesign>
       </AppMain>
     </div>
   );

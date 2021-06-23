@@ -7,8 +7,6 @@ import axios from 'axios'
 window.$httpRequest = axios
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App/>,
   document.getElementById('root')
 );

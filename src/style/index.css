@@ -5,3 +5,7 @@ body {
   padding: 0;
   background: #f2f4f5;
 }
+
+.bjs-powered-by {
+  display: none;
+}

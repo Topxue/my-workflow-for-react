@@ -21,7 +21,7 @@ const {Option} = Select
 const ERROR_OK = 201
 
 
-function BaseSetting() {
+function BaseSetting({currentTab}) {
   const [group, setGroup] = useState('')
   const [items, setItems] = useState([])
   const [groupIpt, setGroupIpt] = useState(false)
@@ -89,7 +89,7 @@ function BaseSetting() {
   }
 
   return (
-    <BaseSettingContainer>
+    <BaseSettingContainer currentTab={currentTab}>
       <Form
         layout={'vertical'}
         name="basic"

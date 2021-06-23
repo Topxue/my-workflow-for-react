@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import Generator from 'fr-generator'
 import {FromGeneratorContainer} from "../../style/fr-generator";
 
@@ -12,19 +12,25 @@ const defaultValue = {
   },
 }
 
-// const extraButtons = {
-//   text: '測試'
-// }
 
+const FormGenerator = ({currentTab}) => {
+  const ref = useRef()
 
-const FormGenerator = () => {
-  const onSchemaChange = (event) => {
-    console.log(event, '1231')
+  const goToFrPlayground = () => {
+    console.log('test...')
+  }
+
+  const onSchemaChange = (schema) => {
+    console.log(schema, '1231')
   }
 
   return (
-    <FromGeneratorContainer>
-      <Generator defaultValue={defaultValue} onSchemaChange={onSchemaChange}/>
+    <FromGeneratorContainer currentTab={currentTab}>
+      <Generator
+        ref={ref}
+        extraButtons={[{text: '去playground验证', onClick: goToFrPlayground}]}
+        defaultValue={defaultValue}
+        onSchemaChange={schema => onSchemaChange(schema)}/>
     </FromGeneratorContainer>
   )
 }
