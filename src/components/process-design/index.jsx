@@ -7,18 +7,29 @@ import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import React, {Component, createRef} from 'react'
 import BpmnModeler from 'bpmn-js/lib/Modeler'
 
-import propertiesPanelModule from 'bpmn-js-properties-panel'
+// import propertiesPanelModule from 'bpmn-js-properties-panel'
 
-// import flowableModdleDescriptor from '../../bpmn/flowable.json'
+/**
+ * flowable: flowableModdleDescriptor
+ * flowable
+ */
+import flowableModdleDescriptor from '../../utils/flowable/resources/flowable.json'
+
+/**
+ *
+ * activiti
+ */
+// import flowableModdleDescriptor from 'bpmn-moddle/resources/bpmn/json/bpmn.json'
 
 import bpmnXmlStr from '../../config/bpmn'
 import Translate from '../../utils/translate'
-
+import customizePalette from '../../utils/palette'
 
 class ProcessDesign extends Component {
   constructor(props) {
     super(props)
 
+    this.element = {}
     this.bpmnModeler = {}
     this.canvas = createRef()
   }
@@ -28,6 +39,8 @@ class ProcessDesign extends Component {
     this.initBpmn()
     // 初始化流程设计
     this.initCreateDiagram()
+    // 处理Modeler事件
+    this.handleModeler()
   }
 
   initBpmn() {
@@ -40,18 +53,27 @@ class ProcessDesign extends Component {
       container: this.canvas.current,
       additionalModules: [
         customTranslateModule,
-        propertiesPanelModule
+        // propertiesPanelModule
       ],
-      // moddleExtensions: {
-      //   flowable: flowableModdleDescriptor
-      // }
+      moddleExtensions: {
+        flowable: flowableModdleDescriptor
+      }
     })
   }
 
-  async initCreateDiagram() {
+  initCreateDiagram() {
     const XML = bpmnXmlStr()
-    const data = await this.bpmnModeler.importXML(XML)
-    console.log(data)
+
+    this.bpmnModeler.importXML(XML)
+
+    customizePalette(this.canvas.current)
+  }
+
+  handleModeler() {
+    // 监听节点变化
+    this.bpmnModeler.on('selection.changed', event => {
+      console.log(event, 'handle Modeler...')
+    })
   }
 
 

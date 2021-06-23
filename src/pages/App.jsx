@@ -33,17 +33,6 @@ function App() {
     setCurrentTab(currentIndex + 1)
   }
 
-  // const getCurrentTab = () => {
-  //   switch (currentTab) {
-  //     case 1:
-  //       return <BaseSetting></BaseSetting>
-  //     case 2:
-  //       return <FormGenerator></FormGenerator>
-  //     default:
-  //       return <BaseSetting></BaseSetting>
-  //   }
-  // }
-
   return (
     <div className="App">
       <HeaderWrapper>
