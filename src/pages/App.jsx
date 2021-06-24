@@ -10,17 +10,17 @@ import {
   HeaderWarperCenter,
   HeaderWarperLeft,
   HeaderWrapper
-} from '../style/App'
+} from '@/style/App'
 
 import {LeftOutlined} from '@ant-design/icons'
 
-import {DEFAULT_GOT_X, Tabs} from '../config'
+import {DEFAULT_GOT_X, Tabs} from '@/config'
 
 import {Button} from 'antd'
 
-import BaseSetting from '../components/BaseSetting'
-import FormGenerator from "../components/form-generator";
-import ProcessDesign from "../components/process-design";
+import BaseSetting from '@/components/BaseSetting'
+import FormGenerator from "@/components/form-generator";
+import ProcessDesign from "@/components/process-design";
 
 function App() {
   const [ghostX, setGhostX] = useState(0)

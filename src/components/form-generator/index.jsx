@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import Generator from 'fr-generator'
-import {FromGeneratorContainer} from "../../style/fr-generator";
+import {FromGeneratorContainer} from "@/style/fr-generator";
 
 const defaultValue = {
   type: 'object',

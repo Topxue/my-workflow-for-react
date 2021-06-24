@@ -28,3 +28,10 @@ export const Tabs = [
   //   isActive: false
   // }
 ]
+
+
+/**
+ * nodeType
+ *
+ */
+export const START_EVENT = 'bpmn:StartEvent'

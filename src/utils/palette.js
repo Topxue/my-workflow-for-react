@@ -3,7 +3,7 @@
  * @param canvas 容器
  */
 
-import paletteData from '../config/paletteData'
+import paletteData from '@/config/paletteData'
 
 const customizePalette = (canvas) => {
   try {

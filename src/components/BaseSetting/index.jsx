@@ -11,9 +11,9 @@ import {
   GroupButtonContainer,
   GroupInputContainer,
   SelectAppIconContainer
-} from '../../style/BaseSetting'
+} from '@/style/BaseSetting'
 
-import {mathId} from "../../utils"
+import {mathId} from "@/utils"
 
 
 const {Option} = Select
